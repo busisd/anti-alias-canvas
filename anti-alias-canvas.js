@@ -53,6 +53,11 @@ hiResCanvas.width = WIDTH * 10;
 hiResCanvas.height = HEIGHT * 10;
 const hiResCtx = hiResCanvas.getContext("2d");
 
+const builtInAaCanvas = document.getElementById("built-in-aa-canvas");
+builtInAaCanvas.width = WIDTH;
+builtInAaCanvas.height = HEIGHT;
+const builtInAaCtx = builtInAaCanvas.getContext("2d");
+
 const verticesInput = document.getElementById("vertices-input");
 const colorInputR = document.getElementById("color-input-r");
 const colorInputG = document.getElementById("color-input-g");
@@ -97,6 +102,15 @@ const drawHiResShape = (vertices, r = 0, g = 0, b = 0, a = 255) => {
   hiResCtx.closePath();
   hiResCtx.fill();
 }
+const drawBuiltInAaShape = (vertices, r = 0, g = 0, b = 0, a = 255) => {
+  builtInAaCtx.fillStyle=`rgba(${r},${g},${b},${a / 255})`
+  builtInAaCtx.beginPath();
+  for (const vertex of vertices) {
+    builtInAaCtx.lineTo(vertex[0], vertex[1]);
+  }
+  builtInAaCtx.closePath();
+  builtInAaCtx.fill();
+}
 
 const inputsForm = document.getElementById("inputs-form");
 inputsForm.onsubmit = (e) => {
@@ -109,9 +123,11 @@ inputsForm.onsubmit = (e) => {
 
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     hiResCtx.clearRect(0, 0, WIDTH * 10, HEIGHT * 10);
+    builtInAaCtx.clearRect(0,0, WIDTH, HEIGHT);
     
     drawAntiAliasedShape(...inputs);
     drawHiResShape(...inputs);
+    drawBuiltInAaShape(...inputs);
   } catch (e) {
     console.error(e);
     errorText.innerText = e.message;
@@ -121,6 +137,7 @@ inputsForm.onsubmit = (e) => {
 const initialInputs = getInputs();
 drawAntiAliasedShape(...initialInputs);
 drawHiResShape(...initialInputs);
+drawBuiltInAaShape(...initialInputs);
 
 /**
 Some nice lines/shapes:

@@ -10,7 +10,10 @@
 
 <body style="background-color: rgb(172, 200, 201);">
   <main>
-    <canvas id="main-canvas" style="
+    <div style="display: flex; flex-direction: row;">
+    <div style="padding-right: 10px;">
+      <span>Local anti-aliasing implementation:</span><br>
+      <canvas id="main-canvas" style="
               width: 320px;
               height: 320px;
               background-color: white;
@@ -19,7 +22,10 @@
               image-rendering: pixelated;
               image-rendering: crisp-edges;
             "></canvas>
-    <canvas id="hi-res-canvas" style="
+    </div>
+    <div style="padding-right: 10px;">
+      <span>Built-in canvas anti-aliasing:</span><br>
+      <canvas id="built-in-aa-canvas" style="
               width: 320px;
               height: 320px;
               background-color: white;
@@ -28,6 +34,20 @@
               image-rendering: pixelated;
               image-rendering: crisp-edges;
             "></canvas>
+    </div>
+    <div style="padding-right: 10px;">
+      <span>10x resolution shape:</span><br>
+      <canvas id="hi-res-canvas" style="
+              width: 320px;
+              height: 320px;
+              background-color: white;
+              image-rendering: -moz-crisp-edges;
+              image-rendering: -webkit-crisp-edges;
+              image-rendering: pixelated;
+              image-rendering: crisp-edges;
+            "></canvas>
+    </div>
+    </div>
     <div style="width: 320px;">
       <form id="inputs-form">
         <label for="vertices-input">Vertices:</label>
