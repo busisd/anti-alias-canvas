@@ -17,3 +17,7 @@ set to that value.
 ### Screenshots
 
 ![Full site screenshot](screenshots/site.png)
+
+### Acknowledgments
+The [polybooljs](https://github.com/velipso/polybooljs) library is used for computing intersections
+between polygons.
