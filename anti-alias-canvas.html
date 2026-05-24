@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Anti alias canvas</title>
+</head>
+
+<body style="background-color: rgb(172, 200, 201);">
+  <main>
+    <canvas id="main-canvas" style="
+              width: 320px;
+              height: 320px;
+              background-color: white;
+              image-rendering: -moz-crisp-edges;
+              image-rendering: -webkit-crisp-edges;
+              image-rendering: pixelated;
+              image-rendering: crisp-edges;
+            "></canvas>
+    <canvas id="hi-res-canvas" style="
+              width: 320px;
+              height: 320px;
+              background-color: white;
+              image-rendering: -moz-crisp-edges;
+              image-rendering: -webkit-crisp-edges;
+              image-rendering: pixelated;
+              image-rendering: crisp-edges;
+            "></canvas>
+    <div style="width: 320px;">
+      <form id="inputs-form">
+        <label for="vertices-input">Vertices:</label>
+        <textarea id="vertices-input" name="vertices-input" style="width: 100%; height: 160px; box-sizing: border-box;">[
+  [10, 2],
+  [18,16],
+  [2, 10]
+]
+</textarea>
+        <br>
+        Color:<br>
+        <input type="number" name="color-input-r" id="color-input-r" min="0" max="255" value="0"><label
+          for="color-input-r"> R</label><br>
+        <input type="number" name="color-input-g" id="color-input-g" min="0" max="255" value="0"><label
+          for="color-input-g"> G</label><br>
+        <input type="number" name="color-input-b" id="color-input-b" min="0" max="255" value="0"><label
+          for="color-input-b"> B</label><br>
+        <input type="number" name="color-input-a" id="color-input-a" min="0" max="255" value="255"><label
+          for="color-input-a"> A</label><br>
+        <br>
+        <button type="submit">Show shape</button>
+        <br><br>
+        <span id="error-text" style="color: darkred;">
+      </form>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/polybooljs@1.2.2/dist/polybool.min.js"></script>
+  <script src="anti-alias-canvas.js"></script>
+</body>
+
+</html>
