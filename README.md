@@ -16,7 +16,9 @@ set to that value.
 
 ### Screenshots
 
-![Full site screenshot](screenshots/site.png)
+![Full site screenshot 1](screenshots/site1.png)
+
+![Full site screenshot 2](screenshots/site2.png)
 
 ### Acknowledgments
 The [polybooljs](https://github.com/velipso/polybooljs) library is used for computing intersections
